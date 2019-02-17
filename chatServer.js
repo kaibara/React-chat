@@ -12,7 +12,7 @@ app.get('/',(req,res) => {
 })
 
 const socketio = require('socket.io')
-const io = socketio.listen(server)
+const io = socketio.listen(process.env.PORT || server)
 
 io.on('connection',(socket) => {
   console.log('Acces to User:', socket.client.id)
