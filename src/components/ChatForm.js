@@ -1,5 +1,7 @@
 import React,{Component} from 'react'
 import socketio from 'socket.io-client'
+import AuthContainer from '../container/AuthContainers'
+import { firebaseApp } from '../firebase'
 
 const socket = socketio.connect('http://localhost:3005')
 
@@ -32,8 +34,12 @@ class ChatForm extends Component {
         <div className='Name'>
           名前:
           <br />
-          <input value={this.state.name} onChange={e => this.nameChanged(e)} />
+          { this.props.uid ?
+            <input value={this.props.displayName} />:
+            <input value={this.state.name} onChange={e => this.nameChanged(e)} />
+          }
         </div>
+        <AuthContainer />
         <br />
         <div className='Message'>
           メッセージ:
