@@ -2,15 +2,15 @@ const path = require('path')
 module.exports = {
   entry: path.join(__dirname, 'src/index.js'),
   output: {
-    path.join(__dirname, 'public')
+    path: path.join(__dirname, 'public'),
     filename: 'bundle.js'
   },
   devtool: 'inline-source-map',
-  modules: {
+  module: {
     rules: [
       {
         test: /.js$/,
-        loader: 'babel-loader'
+        loader: 'babel-loader',
         options: {
           presets: ['es2015','react']
         }
