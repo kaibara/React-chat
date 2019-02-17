@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import socketio from 'socket.io-client'
 import ChatForm from './ChatForm'
 
-const socket = socketio.connect('http://localhost:3000')
+const socket = socketio.connect('http://localhost:3005')
 
 class ChatApp  extends Component {
   constructor(props){

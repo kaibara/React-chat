@@ -1,9 +1,9 @@
 const express = require('express')
 const app = express()
 const server = require('http').createServer(app)
-const portNumber = 3000
+const portNumber = 3005
 server.listen(portNumber, () => {
-  console.log('起動しました', 'http://localhost' + portNumber)
+  console.log('起動しました', 'http://localhost:' + portNumber)
 })
 
 app.use('/public', express.static('./public'))
@@ -18,6 +18,6 @@ io.on('connection',(socket) => {
   console.log('Acces to User:', socket.client.id)
   socket.on('chatMessage',(msg) => {
     console.log('message',msg)
-    io.emit('chatMessage',mst)
+    io.emit('chatMessage',msg)
   })
 })
