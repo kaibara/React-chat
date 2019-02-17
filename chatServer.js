@@ -1,7 +1,8 @@
 const express = require('express')
 const app = express()
-const server = require('http').createServer(app)
+const server = require('http').createServer(app) || 3004
 const portNumber = process.env.PORT || 3005
+
 server.listen(portNumber, () => {
   console.log('起動しました', 'http://localhost:' + portNumber)
 })
