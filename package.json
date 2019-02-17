@@ -20,8 +20,12 @@
   "homepage": "https://github.com/kaibara/React-chat#readme",
   "dependencies": {
     "express": "^4.16.4",
+    "firebase": "^5.8.3",
+    "firebase-tools": "^6.3.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
+    "react-redux": "^6.0.0",
+    "redux": "^4.0.1",
     "socket.io-client": "^2.2.0",
     "socketio": "^1.0.0"
   },
