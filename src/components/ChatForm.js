@@ -3,7 +3,8 @@ import socketio from 'socket.io-client'
 import AuthContainer from '../container/AuthContainers'
 import firebase from '../firebase/firebase'
 
-const socket = socketio.connect('http://localhost:3005')
+const portNumber = process.env.PORT || 3005
+const socket = socketio.connect('http://localhost:' + portNumber)
 
 class ChatForm extends Component {
   constructor(props){
