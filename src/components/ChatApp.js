@@ -2,7 +2,8 @@ import React,{Component} from 'react'
 import socketio from 'socket.io-client'
 import ChatForm from './ChatForm'
 
-const socket = socketio.connect('http://localhost:3005')
+const portNumber = process.env.PORT || 3005
+const socket = socketio.connect('http://localhost:' + portNumber)
 
 class ChatApp  extends Component {
   constructor(props){
