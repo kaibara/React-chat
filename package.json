@@ -5,9 +5,7 @@
   "main": "chatServer.js",
   "scripts": {
     "start": "node chatServer.js",
-    "fb": "firebase serve",
     "build": "webpack",
-    "deploy": "firebase deplpy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
