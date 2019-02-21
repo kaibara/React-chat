@@ -1,11 +1,12 @@
 {
-  "name": "react-chat",
-  "version": "1.1.0",
-  "description": "Reactを使用したチャット開発",
-  "main": "chatServer.js",
+  "name": "Reactチャット",
+  "version": "2.0.0",
+  "description": "React,Firebaseを使用したチャット開発",
+  "main": "src/index.js",
   "scripts": {
-    "start": "node chatServer.js",
+    "start": "firebase serve",
     "build": "webpack",
+    "deploy": "firebase deploy",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -20,15 +21,12 @@
   "homepage": "https://github.com/kaibara/React-chat#readme",
   "dependencies": {
     "bufferutil": "4.0.1",
-    "express": "^4.16.4",
     "firebase": "^5.8.3",
     "firebase-tools": "^6.3.1",
     "react": "^16.8.2",
     "react-dom": "^16.8.2",
     "react-redux": "^6.0.1",
     "redux": "^4.0.1",
-    "socket.io-client": "^2.2.0",
-    "socketio": "^1.0.0",
     "utf-8-validate": "5.0.2",
     "ws": "6.1.4"
   },
