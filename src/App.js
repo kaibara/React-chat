@@ -60,8 +60,12 @@ class App extends Component {
   }
 
   render() {
+    const AppStyle = {
+      width: '100%',
+      height: '100%'
+    }
     return (
-      <div className="App">
+      <div className="App" style={AppStyle}>
         <div className="MessageList">
           {this.state.messages.map((m, i) => {
             return <ChatMessage key={i} message={m} />
