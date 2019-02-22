@@ -14,34 +14,33 @@ class App extends Component {
     this.state = {
       text : "",
       user_name: "",
-      messages : [],
+      messages : []
     }
   }
 
   componentWillMount() {
     messagesRef.on('child_added', (snapshot) => {
       const m = snapshot.val()
+      console.log({m})
       let msgs = this.state.messages
-
       msgs.push({
         'text' : m.text,
-        'user_name' : m.user_name,
+        'user_name' : m.user_name
       })
-
       this.setState({
         messages : msgs
-      });
+      })
     })
   }
 
   onTextChange(e) {
     if(e.target.name == 'user_name') {
       this.setState({
-        "user_name": e.target.value,
+        "user_name": e.target.value
       });
     } else if (e.target.name == 'text') {
       this.setState({
-        "text": e.target.value,
+        "text": e.target.value
       });
     }
   }
@@ -55,10 +54,24 @@ class App extends Component {
     }
     messagesRef.push({
       "user_name" : this.state.user_name,
-      "text" : this.state.text,
+      "text" : this.state.text
+    })
+    this.setState({"text": ""})
+  }
+  onRemoveClick(){
+    messagesRef.on('child_deleted',(snapshot) => {
+      const m = snapshot.val()
+      let msgs = this.state.messages
+      msgs.remove({
+        'text' : m.text,
+        'user_name' : m.user_name
+      })
+      this.setState({
+        messages : msgs
+      })
     })
   }
-
+  
   render() {
     const AppStyle = {
       width: '100%',

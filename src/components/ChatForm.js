@@ -33,7 +33,8 @@ class ChatForm extends Component {
     }
     const divStyle = {
       display: 'inline-grid',
-      position: 'fixed'
+      position: 'fixed',
+      margin: '10px'
     }
     const inputStyle = {
       height: '30px',

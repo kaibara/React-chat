@@ -12,7 +12,7 @@ Reactを使用したチャット開発
 $ npm start
 ```
 
-http://localhost:3005
+http://localhost:5000
 
 ### Web
 https://react-chat-b0e8a.firebaseapp.com/

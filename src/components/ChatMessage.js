@@ -17,6 +17,7 @@ class ChatMessage  extends Component {
       <div className="Message" style={space}>
         <p className="MessageText" style={message}>{this.props.message.text}</p>
         <p className="MessageName" style={user}>by&nbsp;{this.props.message.user_name}</p>
+        <button className="MessageRemove" onClick={this.props.onRemoveClick}>削除</button>
       </div>
     )
   }
