@@ -62,11 +62,16 @@ class App extends Component {
   render() {
     const AppStyle = {
       width: '100%',
-      height: '100%'
+      height: '100%',
+      display: '-webkit-box'
+    }
+    const MessageSize = {
+      width: '35%'
     }
     return (
       <div className="App" style={AppStyle}>
-        <div className="MessageList">
+        <div className="MessageList" style={MessageSize}>
+          <h2>メッセージログ</h2>
           {this.state.messages.map((m, i) => {
             return <ChatMessage key={i} message={m} />
           })}
