@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
-import { firebaseDB } from './firebase/firebase'
+import firebase from 'firebase/app'
+import { firebaseApp,firebaseDB } from './firebase/firebase'
 import ChatMessage from './components/ChatMessage'
 import ChatForm from './components/ChatForm'
 
@@ -7,13 +8,13 @@ const messagesRef = firebaseDB.ref('messages')
 
 class App extends Component {
   constructor(props) {
-    super(props);
+    super(props)
     this.onTextChange = this.onTextChange.bind(this)
     this.onButtonClick = this.onButtonClick.bind(this)
     this.state = {
       text : "",
       user_name: "",
-      messages : []
+      messages : [],
     }
   }
 
@@ -44,7 +45,6 @@ class App extends Component {
       });
     }
   }
-
   onButtonClick() {
     if(this.state.user_name == "") {
       alert('名前を入力してください')
@@ -69,7 +69,7 @@ class App extends Component {
         </div>
         <ChatForm onTextChange={this.onTextChange} onButtonClick={this.onButtonClick} />
       </div>
-    );
+    )
   }
 }
 

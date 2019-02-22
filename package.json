@@ -1,5 +1,5 @@
 {
-  "name": "Reactチャット",
+  "name": "react-chat",
   "version": "2.0.0",
   "description": "React,Firebaseを使用したチャット開発",
   "main": "src/index.js",

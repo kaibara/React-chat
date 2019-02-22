@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import firebase from 'firebase/app'
+import {firebaseApp} from '../firebase/firebase'
 
 class ChatForm extends Component {
   render(){
