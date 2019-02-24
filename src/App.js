@@ -11,6 +11,7 @@ class App extends Component {
     super(props)
     this.onTextChange = this.onTextChange.bind(this)
     this.onButtonClick = this.onButtonClick.bind(this)
+    this.onRemoveClick = this.onRemoveClick.bind(this)
     this.state = {
       text : "",
       user_name: "",
@@ -19,19 +20,19 @@ class App extends Component {
   }
 
   componentWillMount() {
-    messagesRef.on('child_added', (snapshot) => {
-      const m = snapshot.val()
-      console.log({m})
-      let msgs = this.state.messages
-      msgs.push({
-        'text' : m.text,
-        'user_name' : m.user_name
+      messagesRef.on('child_added', (snapshot) => {
+        const m = snapshot.val()
+        console.log({m})
+        let msgs = this.state.messages
+        msgs.push({
+          'text' : m.text,
+          'user_name' : m.user_name
+        })
+        this.setState({
+          messages : msgs
+        })
       })
-      this.setState({
-        messages : msgs
-      })
-    })
-  }
+    }
 
   onTextChange(e) {
     if(e.target.name == 'user_name') {
@@ -59,19 +60,9 @@ class App extends Component {
     this.setState({"text": ""})
   }
   onRemoveClick(){
-    messagesRef.on('child_deleted',(snapshot) => {
-      const m = snapshot.val()
-      let msgs = this.state.messages
-      msgs.remove({
-        'text' : m.text,
-        'user_name' : m.user_name
-      })
-      this.setState({
-        messages : msgs
-      })
-    })
+    messagesRef.child(msgs).remove()
   }
-  
+
   render() {
     const AppStyle = {
       width: '100%',
@@ -86,7 +77,7 @@ class App extends Component {
         <div className="MessageList" style={MessageSize}>
           <h2>メッセージログ</h2>
           {this.state.messages.map((m, i) => {
-            return <ChatMessage key={i} message={m} />
+            return <ChatMessage key={i} message={m} onButtonClick={this.onRemoveClick}/>
           })}
         </div>
         <ChatForm onTextChange={this.onTextChange} onButtonClick={this.onButtonClick} />
