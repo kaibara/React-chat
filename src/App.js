@@ -14,34 +14,33 @@ class App extends Component {
     this.state = {
       text : "",
       user_name: "",
-      messages : [],
+      messages : []
     }
   }
 
   componentWillMount() {
-    messagesRef.on('child_added', (snapshot) => {
-      const m = snapshot.val()
-      let msgs = this.state.messages
-
-      msgs.push({
-        'text' : m.text,
-        'user_name' : m.user_name,
+      messagesRef.on('child_added', (snapshot) => {
+        const m = snapshot.val()
+        let msgs = this.state.messages
+        console.log({msgs})
+        msgs.push({
+          'text' : m.text,
+          'user_name' : m.user_name,
+          'key': snapshot.key
+        })
+        this.setState({ messages : msgs })
+        console.log(this.state.messages)
       })
-
-      this.setState({
-        messages : msgs
-      });
-    })
-  }
+    }
 
   onTextChange(e) {
     if(e.target.name == 'user_name') {
       this.setState({
-        "user_name": e.target.value,
+        "user_name": e.target.value
       });
     } else if (e.target.name == 'text') {
       this.setState({
-        "text": e.target.value,
+        "text": e.target.value
       });
     }
   }
@@ -55,8 +54,9 @@ class App extends Component {
     }
     messagesRef.push({
       "user_name" : this.state.user_name,
-      "text" : this.state.text,
+      "text" : this.state.text
     })
+    this.setState({"text": ""})
   }
 
   render() {
