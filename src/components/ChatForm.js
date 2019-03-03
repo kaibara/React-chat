@@ -21,9 +21,6 @@ class ChatForm extends Component {
   logout(){
     firebase.auth().signOut()
   }
-  change(){
-    this.setState({user_name: this.state.user.displayName})
-  }
   render(){
     const fullWidth = {
       width: '100%'
