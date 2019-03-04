@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import firebase from 'firebase/app'
 import { firebaseApp,firebaseDB } from '../firebase/firebase'
 import ChatMessage from './ChatMessage'
-import ChatForm from '../components/ChatForm'
+import ChatForm from '../containers/ChatFormContainer'
 
 const messagesRef = firebaseDB.ref('messages')
 

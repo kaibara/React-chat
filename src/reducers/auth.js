@@ -9,13 +9,11 @@ const auth = (state=initialState, action) => {
         displayName: action.payload.displayName
       })
     }
-
     case 'LOGOUT': {
       return Object.assign({}, state, {
         displayName: null
       })
     }
-
     default: {
       return state
     }

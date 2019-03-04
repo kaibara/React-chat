@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import App from '../components/App'
 
 const mapStateToProps = (state) => {
-  console.log(state.auth.displayName)
   return {
     displayName: state.auth.displayName,
   }
