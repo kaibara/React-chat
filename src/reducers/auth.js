@@ -1,28 +1,23 @@
 const initialState = {
-  uid: null,
-  displayName: null,
+  displayName: null
 }
 
- const auth = (state=initialState, action) => {
+const auth = (state=initialState, action) => {
   switch (action.type) {
-    case "LOGIN_OK": {
+    case 'LOGIN': {
       return Object.assign({}, state, {
-        uid: action.payload.uid,
-        displayName: action.payload.displayName,
+        displayName: action.payload.displayName
       })
     }
-
-     case 'LOGOUT': {
+    case 'LOGOUT': {
       return Object.assign({}, state, {
-        uid: null,
-        displayName: null,
+        displayName: null
       })
     }
-
-     default: {
+    default: {
       return state
     }
   }
 }
 
- export default auth
+export default auth
