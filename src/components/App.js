@@ -62,10 +62,15 @@ class App extends Component {
     const MessageSize = {
       width: '35%'
     }
+    const Url = {
+      fontSize: '20px',
+      fontWeight: '500'
+    }
     return (
       <div className="App" style={AppStyle}>
         <div className="MessageList" style={MessageSize}>
           <h2>メッセージログ</h2>
+          <a href="https://github.com/kaibara/React-chat" target="_blank" style={Url}>Github: kaibara/React-chat</a>
           {this.state.messages.map((m, i) => {
             return <ChatMessage key={i} message={m} />
           })}
